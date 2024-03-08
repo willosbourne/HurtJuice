@@ -37,6 +37,7 @@ public class GetToken
         if (true)
         {
             redirectUrl = GetHelpjuiceRedirectUrl("will+sc-test1@sht.dev");
+            redirectUrl = StringReplacer.ReplaceMiddleRandomly(redirectUrl);
         }
 
         response.WriteString(redirectUrl);
