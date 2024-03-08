@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging;
+
 namespace HurtJuice;
 
 public static class StringReplacer
@@ -8,12 +10,12 @@ public static class StringReplacer
 
     private static readonly Random Random = new Random();
 
-    public static string ReplaceMiddleRandomly(string originalString)
+    public static string ReplaceMiddleRandomly(string originalString, ILogger logger)
     {
         // Check if we should replace
         if (Random.NextDouble() < 0.5)
         {
-            Console.WriteLine("********REPLACED STRING********");
+            logger.LogInformation("********REPLACED STRING********");
             // Calculate the start index for replacement to ensure it's in the middle
             int startIdx = originalString.Length / 2 - 4;
             // Choose a random replacement string

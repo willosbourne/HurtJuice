@@ -40,10 +40,12 @@ public class ValidateToken
 
         if (StringReplacer.HasReplacementInString(url) || string.IsNullOrEmpty(url))
         {
+            _logger.LogInformation("----------------Invalid URL----------------");
             await response.WriteStringAsync("false");
         }
         else
         {
+            _logger.LogInformation("+++++++++++++++++Valid URL+++++++++++++++++");
             await response.WriteStringAsync("true");
         }
         return response;
